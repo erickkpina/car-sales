@@ -37,6 +37,10 @@ class App extends Component {
 					title={item.brand}
 				>
 					{item.name}
+					<br />
+					{item.brand}
+					<br />
+					{item.price}
 				</span>
 			</li>
 		));
