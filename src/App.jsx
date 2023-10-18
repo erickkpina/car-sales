@@ -1,6 +1,10 @@
 import React, { Component } from "react"
 import axios from "axios";
 
+import { Header } from "./components/Header.jsx";
+import { Footer } from "./components/Footer.jsx";
+import { Card } from "./components/Card.jsx";
+
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -28,37 +32,21 @@ class App extends Component {
 	renderItems = () => {
 		const newItems = this.state.carList;
 		return newItems.map(item => (
-			<li
-				key={item.id}
-				className="list-group-item d-flex justify-content-between align-items-center"
-			>
-				<span
-					className={`todo-title mr-2`}
-					title={item.brand}
-				>
-					{item.name}
-					<br />
-					{item.brand}
-					<br />
-					{item.price}
-				</span>
-			</li>
+			<Card key={item.id} carName={item.name} carBrand={item.brand} carPrice={item.price} />
 		));
 	};
 
 	render() {
 		return (
-			<main className="content">
-				<div className="row">
-					<div className="col-md-6 col-sm-10 mx-auto p-0">
-						<div className="card p-3">
-							<ul className="list-group list-group-flush">
-								{this.renderItems()}
-							</ul>
-						</div>
+			<div className="App">
+				<Header />
+				<main>
+					<div className="flex flex-wrap justify-center">
+						{this.renderItems()}
 					</div>
-				</div>
-			</main>
+				</main>
+				<Footer />
+			</div>
 		)
 	}
 }
