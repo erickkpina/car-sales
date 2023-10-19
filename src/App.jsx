@@ -4,6 +4,7 @@ import axios from "axios";
 import { Header } from "./components/Header.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { Card } from "./components/Card.jsx";
+import { Carousel } from "./components/Carousel.jsx";
 
 class App extends Component {
 	constructor(props) {
@@ -40,10 +41,16 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header />
+				
 				<main>
-					<div className="flex flex-wrap justify-center">
-						{this.renderItems()}
-					</div>
+					<section className="flex flex-col">
+						<div>
+							<Carousel />		
+						</div>
+						<div className="flex flex-wrap justify-center">
+								{this.renderItems()}
+						</div>
+					</section>
 				</main>
 				<Footer />
 			</div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Carousel } from './Carousel'
 
 export const Card = ({ carName, carBrand, carPrice }) => {
     return (
@@ -6,6 +7,7 @@ export const Card = ({ carName, carBrand, carPrice }) => {
         <div className=" w-[350px] m-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 shadow-lg hover:shadow-2xl ">
             <a href="#">
                 <img className="rounded-t-lg" src="" alt="" />
+                <Carousel />
             </a>
             <div className="p-5">
                 <a href="#">
