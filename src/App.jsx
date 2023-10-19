@@ -5,6 +5,7 @@ import { Header } from "./components/Header.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { Card } from "./components/Card.jsx";
 import { Carousel } from "./components/Carousel.jsx";
+import img from "./assets/img/slider1.jpg";
 
 class App extends Component {
 	constructor(props) {
@@ -41,11 +42,11 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header />
-				
+				<img class="h-auto max-w-full" src={img} alt="image description" />	
 				<main>
 					<section className="flex flex-col">
 						<div>
-							<Carousel />		
+								
 						</div>
 						<div className="flex flex-wrap justify-center">
 								{this.renderItems()}
