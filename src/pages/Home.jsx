@@ -32,11 +32,9 @@ export const Home = () => {
 
     return (
         <main>
-            <section className="flex flex-col">
-                <div className="flex flex-wrap justify-center">
-                    {renderItems()}
-                </div>
-            </section>
+            <div className="flex flex-wrap justify-center">
+                {renderItems()}
+            </div>
         </main>
     )
 }

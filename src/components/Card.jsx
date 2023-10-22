@@ -4,7 +4,7 @@ import { Carousel } from './Carousel'
 export const Card = ({ carName, carBrand, carPrice }) => {
     return (
 
-        <div className=" w-[350px] m-5 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700 shadow-lg hover:shadow-2xl ">
+        <div className="w-[350px] mx-3 mt-5 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:border-gray-700 shadow-lg hover:shadow-2xl ">
             <div>
                 <Carousel />
             </div>
