@@ -42,14 +42,14 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header />
-				<img class="h-auto max-w-full" src={img} alt="image description" />	
+				<img className="h-auto max-w-full" src={img} alt="image description" />
 				<main>
 					<section className="flex flex-col">
 						<div>
-								
+
 						</div>
 						<div className="flex flex-wrap justify-center">
-								{this.renderItems()}
+							{this.renderItems()}
 						</div>
 					</section>
 				</main>
