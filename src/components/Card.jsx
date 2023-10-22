@@ -5,9 +5,9 @@ export const Card = ({ carName, carBrand, carPrice }) => {
     return (
 
         <div className=" w-[350px] m-5 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700 shadow-lg hover:shadow-2xl ">
-            <a href="#">
+            <div>
                 <Carousel />
-            </a>
+            </div>
             <div className="p-5">
                 <a href="#">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{carName}</h5>
