@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Carousel } from './Carousel'
 
-export const Card = ({ carName, carBrand, carPrice }) => {
+export const Card = ({ carName, carBrand, carPrice, images }) => {
+    const [hovered, setHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+		setHovered(true);
+	};
+
+	const handleMouseLeave = () => {
+		setHovered(false);
+	};
+
+	
+
     return (
 
-        <div className="w-[350px] mx-3 mt-5 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:border-gray-700 shadow-lg hover:shadow-2xl ">
+        <div className="w-[350px] mx-3 mt-5 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:border-gray-700 shadow-lg hover:shadow-2xl " onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <div>
-                <Carousel />
+                <Carousel hovered={hovered} images={images} />
             </div>
             <div className="p-5">
                 <a href="#">

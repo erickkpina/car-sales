@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import image1 from '../assets/img/slider1.jpg'
 import image2 from '../assets/img/slider2.jpg'
 
-export const Carousel = () => {
+export const Carousel = ({hovered, images}) => {
+
 	const [currentIndex, setCurrentIndex] = useState(0);
-	const [hovered, setHovered] = useState(false);
 
 	const handlePrevClick = () => {
 		const newIndex = (currentIndex - 1 + 2) % 2; // 5 é o número total de imagens no carrossel
@@ -16,22 +16,14 @@ export const Carousel = () => {
 		setCurrentIndex(newIndex);
 	};
 
-	const handleMouseEnter = () => {
-		setHovered(true);
-	};
-
-	const handleMouseLeave = () => {
-		setHovered(false);
-	};
-
 	useEffect(() => {
 		let interval;
-
+		
 		if (hovered) {
 			interval = setInterval(() => {
 				const newIndex = (currentIndex + 1) % 2;
 				setCurrentIndex(newIndex);
-			}, 1100);
+			}, 1100);	
 		} else {
 			clearInterval(interval);
 		}
@@ -43,10 +35,10 @@ export const Carousel = () => {
 
 	return (
 
-		<div id="default-carousel" className="relative w-full" data-carousel="slide" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+		<div id="default-carousel" className="relative w-full" data-carousel="slide" >
 			<div className="relative h-56 overflow-hidden md:h-97">
 				<div className={`duration-700 ease-in-out ${currentIndex === 0 ? 'block' : 'hidden'}`} data-carousel-item>
-					<img src={image1} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+					<img src={images } className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
 				</div>
 				<div className={`duration-700 ease-in-out ${currentIndex === 1 ? 'block' : 'hidden'}`} data-carousel-item>
 					<img src={image2} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />

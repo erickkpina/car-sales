@@ -7,6 +7,7 @@ import { Card } from "../components/Card.jsx";
 export const Home = () => {
     const [carList, setCarList] = useState([]);
 
+
     const fetchData = async () => {
         try {
             const response = await axios.get('http://127.0.0.1:8000/api/cars/');
@@ -20,12 +21,15 @@ export const Home = () => {
 
     useEffect(() => {
         fetchData();
+     
     }, []);
 
     const renderItems = () => {
         return (
             carList.map(car => (
-                <Card key={car.id} carName={car.name} carBrand={car.brand} carPrice={car.price} />
+                
+                <Card key={car.id} carName={car.name} carBrand={car.brand} carPrice={car.price} images={car.carimage_set} />
+                
             ))
         )
     };
