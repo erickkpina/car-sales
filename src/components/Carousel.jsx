@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,  } from 'react'
 import image1 from '../assets/img/slider1.jpg'
 import image2 from '../assets/img/slider2.jpg'
 
@@ -6,13 +6,18 @@ export const Carousel = ({hovered, images}) => {
 
 	const [currentIndex, setCurrentIndex] = useState(0);
 
+
+	const imageUrls = images.map(image => image.img);
+
+	console.log(imageUrls);
+
 	const handlePrevClick = () => {
-		const newIndex = (currentIndex - 1 + 2) % 2; // 5 é o número total de imagens no carrossel
+		const newIndex = (currentIndex - 1 + imageUrls.length ) % imageUrls.length ; 
 		setCurrentIndex(newIndex);
 	};
 
 	const handleNextClick = () => {
-		const newIndex = (currentIndex + 1) % 2;
+		const newIndex = (currentIndex + 1) % imageUrls.length;
 		setCurrentIndex(newIndex);
 	};
 
@@ -21,7 +26,7 @@ export const Carousel = ({hovered, images}) => {
 		
 		if (hovered) {
 			interval = setInterval(() => {
-				const newIndex = (currentIndex + 1) % 2;
+				const newIndex = (currentIndex + 1) % imageUrls.length;
 				setCurrentIndex(newIndex);
 			}, 1100);	
 		} else {
@@ -31,35 +36,40 @@ export const Carousel = ({hovered, images}) => {
 		return () => {
 			clearInterval(interval);
 		};
-	}, [currentIndex, hovered]);
+	}, [currentIndex, hovered, imageUrls]);
 
 	return (
 
 		<div id="default-carousel" className="relative w-full" data-carousel="slide" >
 			<div className="relative h-56 overflow-hidden md:h-97">
-				<div className={`duration-700 ease-in-out ${currentIndex === 0 ? 'block' : 'hidden'}`} data-carousel-item>
-					<img src={images } className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+
+			{imageUrls.map( (image, index) => 
+			(
+				console.log(currentIndex),
+				console.log("Break"),
+				console.log(index),
+
+				<div key={index} className={`duration-700 ease-in-out ${currentIndex === index ? 'block' : 'hidden'}`} data-carousel-item>
+					<img src={image} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
 				</div>
-				<div className={`duration-700 ease-in-out ${currentIndex === 1 ? 'block' : 'hidden'}`} data-carousel-item>
-					<img src={image2} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-				</div>
+			))}
+
+				
+				
 			</div>
 
 			<div className={`absolute ${hovered ? "" : "hidden"} z-30 flex space-x-1 -translate-x-1/2 bottom-5 left-1/2`}>
+			{imageUrls.map((url, index) => (
 				<button
+					key={index}
 					type="button"
-					className={`w-3 h-1 ${currentIndex === 0 ? 'bg-red-600' : 'bg-white'}  rounded-md`}
+					className={`w-3 h-1 ${currentIndex === index ? 'bg-red-600' : 'bg-white'}  rounded-md`}
 					aria-current="true"
 					aria-label="Slide 1"
 					data-carousel-slide-to="0"
 				></button>
-				<button
-					type="button"
-					className={`w-3 h-1 ${currentIndex === 1 ? 'bg-red-600' : 'bg-white'}  rounded-md`}
-					aria-current="false"
-					aria-label="Slide 2"
-					data-carousel-slide-to="1"
-				></button>
+			))}
+				
 			</div>
 
 			<button

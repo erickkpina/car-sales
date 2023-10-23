@@ -6,6 +6,7 @@ import { Card } from "../components/Card.jsx";
 
 export const Home = () => {
     const [carList, setCarList] = useState([]);
+    const [carImageList, setCarImageList] = useState([]);
 
 
     const fetchData = async () => {
@@ -14,6 +15,8 @@ export const Home = () => {
             const data = response.data;
 
             setCarList(data);
+
+
         } catch (error) {
             console.error(error);
         }
@@ -24,11 +27,15 @@ export const Home = () => {
      
     }, []);
 
+    const getImageList = () =>{
+
+    }
+
     const renderItems = () => {
         return (
             carList.map(car => (
-                
-                <Card key={car.id} carName={car.name} carBrand={car.brand} carPrice={car.price} images={car.carimage_set} />
+
+                <Card key={car.id} carName={car.name} carBrand={car.brand} sold={car.sold} carPrice={car.price} images={car.carimage_set} />
                 
             ))
         )
