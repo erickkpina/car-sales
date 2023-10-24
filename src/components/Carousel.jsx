@@ -1,18 +1,12 @@
-import React, { useState, useEffect,  } from 'react'
-import image1 from '../assets/img/slider1.jpg'
-import image2 from '../assets/img/slider2.jpg'
+import React, { useState, useEffect, } from 'react'
+import '../styles/Carousel.css'
 
-export const Carousel = ({hovered, images}) => {
-
+export const Carousel = ({ hovered, images, sold }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
-
-
 	const imageUrls = images.map(image => image.img);
 
-	console.log(imageUrls);
-
 	const handlePrevClick = () => {
-		const newIndex = (currentIndex - 1 + imageUrls.length ) % imageUrls.length ; 
+		const newIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
 		setCurrentIndex(newIndex);
 	};
 
@@ -23,12 +17,12 @@ export const Carousel = ({hovered, images}) => {
 
 	useEffect(() => {
 		let interval;
-		
+
 		if (hovered) {
 			interval = setInterval(() => {
 				const newIndex = (currentIndex + 1) % imageUrls.length;
 				setCurrentIndex(newIndex);
-			}, 1100);	
+			}, 1100);
 		} else {
 			clearInterval(interval);
 		}
@@ -39,37 +33,36 @@ export const Carousel = ({hovered, images}) => {
 	}, [currentIndex, hovered, imageUrls]);
 
 	return (
-
 		<div id="default-carousel" className="relative w-full" data-carousel="slide" >
 			<div className="relative h-56 overflow-hidden md:h-97">
 
-			{imageUrls.map( (image, index) => 
-			(
-				console.log(currentIndex),
-				console.log("Break"),
-				console.log(index),
-
-				<div key={index} className={`duration-700 ease-in-out ${currentIndex === index ? 'block' : 'hidden'}`} data-carousel-item>
-					<img src={image} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-				</div>
-			))}
-
-				
-				
+				{imageUrls.map((image, index) =>
+				(
+					<div key={index} className={`duration-700 ease-in-out ${currentIndex === index ? 'block' : 'hidden'}`} data-carousel-item>
+						<img src={image} className={`${sold ? " grayscale" : ""} absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2`} alt="..." />
+					</div>
+				))}
+				{sold &&
+					<div className="w-[390px] absolute text-center -left-5 tracking-[.10em] top-20 bg-black text-white font-medium text-2xl p-4 uppercase -rotate-[17deg]">
+						<div className="absolute left-0 right-0 top-2 bg-red-600 p-[3px]"></div>
+						<div className="absolute left-0 right-0 bottom-2 bg-red-600 p-[3px] "></div>
+						sold
+					</div>
+				}
 			</div>
 
 			<div className={`absolute ${hovered ? "" : "hidden"} z-30 flex space-x-1 -translate-x-1/2 bottom-5 left-1/2`}>
-			{imageUrls.map((url, index) => (
-				<button
-					key={index}
-					type="button"
-					className={`w-3 h-1 ${currentIndex === index ? 'bg-red-600' : 'bg-white'}  rounded-md`}
-					aria-current="true"
-					aria-label="Slide 1"
-					data-carousel-slide-to="0"
-				></button>
-			))}
-				
+				{imageUrls.map((url, index) => ( //nao retirar o url
+					<button
+						key={index}
+						type="button"
+						className={`w-3 h-1 ${currentIndex === index ? 'bg-red-600' : 'bg-white'}  rounded-md`}
+						aria-current="true"
+						aria-label="Slide 1"
+						data-carousel-slide-to="0"
+					></button>
+				))}
+
 			</div>
 
 			<button
@@ -98,6 +91,5 @@ export const Carousel = ({hovered, images}) => {
 				</span>
 			</button>
 		</div>
-
 	)
 }

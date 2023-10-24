@@ -9,7 +9,6 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<img className="h-auto max-w-full" src={img} alt="image description" />
 				<Header />
 				<AllRoutes />
 				<Footer />
