@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Carousel } from './Carousel'
 
-export const Card = ({ carName, carBrand, carPrice,sold, images }) => {
+export const Card = ({ carBrand, carModel, carPrice,sold, images }) => {
     const [hovered, setHovered] = useState(false);
 
     const handleMouseEnter = () => {
@@ -23,9 +23,9 @@ export const Card = ({ carName, carBrand, carPrice,sold, images }) => {
                 </div>
                 <div className="p-5">
                     <a href="#">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{carName}</h5>
+                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{carBrand}</h5>
                     </a>
-                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{carBrand}</p>
+                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{carModel}</p>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{carPrice}€</p>
                     <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black border-2 border-yellow-300 rounded-lg hover:bg-yellow-300">
                         Read more

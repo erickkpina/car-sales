@@ -35,7 +35,7 @@ export const Home = () => {
         return (
             carList.map(car => (
 
-                <Card key={car.id} carName={car.name} carBrand={car.brand} sold={car.sold} carPrice={car.price} images={car.carimage_set} />
+                <Card key={car.id} carBrand={car.brand} carModel={car.car_model} sold={car.sold} carPrice={car.price} images={car.carimage_set} />
                 
             ))
         )
