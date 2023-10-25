@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Carousel } from './Carousel'
+import { Button } from './Button';
 
 export const Card = ({ carBrand, carModel, carPrice, sold, images }) => {
     const [hovered, setHovered] = useState(false);
@@ -23,12 +24,7 @@ export const Card = ({ carBrand, carModel, carPrice, sold, images }) => {
                 </a>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{carModel}</p>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{carPrice}€</p>
-                <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black border-2 border-yellow-300 rounded-lg hover:bg-yellow-300">
-                    Read more
-                    <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                </a>
+                
             </div>
         </div>
     )
