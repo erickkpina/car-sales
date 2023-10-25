@@ -31,7 +31,7 @@ export const Home = () => {
 
         return (
             firstTenCars.map(car => (
-                <Card key={car.id} carBrand={car.brand} carModel={car.car_model} sold={car.sold} carPrice={car.price} images={car.carimage_set} />
+                <Card key={car.id} carBrand={car.brand} carFuel={car.fuel} carMileage={car.mileage} carGearbox={car.gearbox} carModel={car.car_model} carYear={car.year} sold={car.sold} carPrice={car.price} images={car.carimage_set} />
             ))
         )
     };
