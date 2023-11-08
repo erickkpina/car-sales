@@ -5,7 +5,7 @@ export class ContactForm extends Component {
   render() {
     return (
         <section class="bg-white dark:bg-gray-900">
-        <div class="px-4 mx-auto max-w-screen-md">
+        <div class="px-4">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
             <p class="mb-8 lg:mb-5 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p>
             <form action="#" class="space-y-8">
@@ -23,7 +23,7 @@ export class ContactForm extends Component {
                 </div>
                 <div className='flex justify-center'>
 
-                <Button2 text={"Submit"} icon={"send"} />
+                <Button2 text={"Submit"} icon={"send"} className="md:mb-0 mb-4"/>
                 </div>
             </form>
         </div>

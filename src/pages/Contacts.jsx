@@ -5,14 +5,17 @@ import img from '../assets/img/slider1.jpg';
 export class Contacts extends Component {
   render() {
     return (
-      <div className='flex flex-col md:flex-row mt-20 p-3'>
-        <div className='md:w-1/2 mt-4 md:mt-0'>
-          <img src={img} alt='' className='h-full rounded-lg' />
+      <main>
+
+      <div className='flex flex-col md:flex-row md:items-center md:justify-center' >
+      <div className='md:w-1/2  '>
+          <img src={img} alt='' className='md:h-screen' />
         </div>
-        <div className='md:w-1/2 md:mt-0 mt-5'>
+        <div className='md:w-1/2 p-3'>
           <ContactForm />
         </div>
       </div>
+      </main>
     );
   }
 }

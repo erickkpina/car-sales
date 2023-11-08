@@ -16,7 +16,7 @@ export const Home = () => {
 
             setCarList(data);
         } catch (error) {
-            console.error(error);
+            console.error(error);   
         }
     };
 
@@ -39,7 +39,7 @@ export const Home = () => {
     return (
         <>
             <img className="h-auto max-w-full" src={img} alt="image description" />
-            <main>
+            <main className='home p-5'>
                 <p className='font-bold text-3xl mt-3' >Destaques</p>
                 <hr className='border-gray-300 my-3' />
                 <div className="flex flex-wrap justify-center">
